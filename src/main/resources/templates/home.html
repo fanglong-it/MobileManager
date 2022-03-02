@@ -1,0 +1,80 @@
+<!--
+  ~
+  ~
+  ~ Project ProductManager
+  ~ Copyright (C) $year by Fanglong-it. All Rights Reserved.
+  ~ For more information : Fang.longpc@gmail.com
+  ~ Example project exist at : https://github.com/fanglong-it/
+  ~ 10/23/21, 7:29 PM
+  ~
+  ~
+  -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="Access/addProductStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product List</title>
+    <link
+            href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800"
+            rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="Access/homeStyles.css">
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="header">
+
+    <button class="viewCart">
+        <a th:href="@{/login}">Login Page</a>
+    </button>
+
+    <button class="viewCart">
+        <a th:href="@{'/shoppingCart/cart'}">View Cart</a>
+    </button>
+
+    <button class="viewCart">
+        <a th:href="@{'/insert_page'}">Insert Product</a>
+    </button>
+    <h1>Product</h1>
+    <h5>All the available products in our store</h5>
+
+</div>
+
+
+<div class="products">
+
+
+    <div class="product" th:each="product : ${LIST_PRODUCT}">
+
+        <div class="product-content">
+            <h3 class="product-h3" th:text="${product.productname}"></h3>
+            <div class="product-img">
+                <img th:src="@{'/get_image/show/'+ ${product.getImage()}}" alt="iphone 8">
+            </div>
+
+            <p class="description" th:text="${product.description}"></p>
+            <p class="product-text" th:text="${product.productprice}"></p>
+            <p class="product-text">
+                <button class="buttonDetail">
+                    <a class="text"
+                       th:href="@{'/view_details/' + ${product.productid}}">Detail</a>
+
+                </button>
+                <button class="buttonAddtoCart">
+                    <a class="text" th:href="@{'/shoppingCart/add/' + ${product.productid}}">Order Now</a>
+                </button>
+            </p>
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+
+</html>

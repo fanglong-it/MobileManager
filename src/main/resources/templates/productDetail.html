@@ -1,0 +1,76 @@
+<!--
+  ~
+  ~
+  ~ Project ProductManager
+  ~ Copyright (C) $year by Fanglong-it. All Rights Reserved.
+  ~ For more information : Fang.longpc@gmail.com
+  ~ Example project exist at : https://github.com/fanglong-it/
+  ~ 10/23/21, 7:29 PM
+  ~
+  ~
+  -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="/Access/productDetailStyle.css">
+</head>
+<body>
+<div class="header">
+    <button class="viewCart" style="float: right"><a href="cart.html">View Cart</a></button>
+    <h1>Product</h1>
+</div>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <p>
+            Welcome <b>[[${#request.userPrincipal.principal.username}]]</b>
+        </p>
+        <button type="submit">Sign Out</button>
+    </form>
+</div>
+
+<table>
+    <tbody>
+
+    <form action="" method="get" th:object="${PRODUCT_DETAIL}">
+
+
+        <tr>
+            <th class="img">
+                <img width="500px" height="500px" th:src="@{'/get_image/show/'+ *{image}}" alt="iphone 8">
+            </th>
+
+            <th class="">
+                <h3 class="description" th:text="*{productname}"></h3>
+                <p class="description" th:text="*{description}"></p>
+                <p class="description">Item code:
+                    <button
+                            style="background-color: orange ;color: white; border: none;"
+                            th:text="*{productid}"></button>
+                </p>
+                <p class="description"> Manufacture:
+                    <button th:text="${CATE_NAME}"></button>
+                </p>
+                <p class="description">category: <a href="" style="color: blue; text-decoration: none;"
+                                                    th:text="*{categoryid}"></a></p>
+                <p class="description">available unit in stock: <span th:text="*{quantity}"></span></p>
+                <p class="description price" th:text="*{productprice}"></p>
+                <p class="description price">
+                    <button class="buttonBack">
+                        <a class="text" href="/">Back</a>
+                    </button>
+                    <button class="buttonAddtoCart">
+                        <a class="text" th:href="@{'/shoppingCart/add/' + *{productid}}">Order Now</a>
+                    </button>
+                </p>
+            </th>
+        </tr>
+    </form>
+    </tbody>
+</table>
+
+
+</body>
+</html>

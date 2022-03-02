@@ -1,0 +1,73 @@
+<!--
+  ~
+  ~
+  ~ Project ProductManager
+  ~ Copyright (C) $year by Fanglong-it. All Rights Reserved.
+  ~ For more information : Fang.longpc@gmail.com
+  ~ Example project exist at : https://github.com/fanglong-it/
+  ~ 10/23/21, 7:29 PM
+  ~
+  ~
+  -->
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="Access/addProductStyle.css">
+</head>
+<body>
+<div class="header">
+    <button class="logout"><a href="login.html">Logout</a></button>
+    <h1>Product</h1>
+    <h5>Add product</h5>
+
+</div>
+
+
+<article>
+    <h2>add product here</h2>
+    <hr>
+    <section>
+        <form th:action="@{/save}" th:object="${PRODUCT}" method="post" enctype="multipart/form-data">
+
+
+            <p>Product Name
+                <input th:field="*{productname}">
+            </p>
+            <p>Unit Price
+
+                <input th:field="*{productprice}">
+            </p>
+            <p>Unit in Stock
+                <input th:field="*{unit}">
+            </p>
+            <p>Description
+                <textarea name="" id="" cols="20" rows="2" th:field="*{description}"></textarea>
+
+            </p>
+            <p>Manifecture :
+                <span>Apple</span>
+            </p>
+            <p>Category
+                <select th:field="*{categoryid}">
+                    <option th:each="cate : ${LIST_CATE}" th:value="${cate.categoryid}"
+                            th:text="${cate.categoryname}"></option>
+                </select>
+            </p>
+            <p>Condition
+                <input type="radio">New
+                <input type="radio">Old
+                <input type="radio">Refurbished
+
+            </p>
+            <p>Product Image
+                :<input type="file" name="photoUrl">
+            </p>
+
+            <button type="submit" class="addProdcutt">Add Product</button>
+        </form>
+    </section>
+</article>
+
+
+</body>
+</html>

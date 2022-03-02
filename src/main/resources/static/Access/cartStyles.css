@@ -1,0 +1,63 @@
+/*
+ *
+ *
+ * Project ProductManager
+ * Copyright (C) $year by Fanglong-it. All Rights Reserved.
+ * For more information : Fang.longpc@gmail.com
+ * Example project exist at : https://github.com/fanglong-it/
+ * 10/23/21, 7:29 PM
+ *
+ *
+ */
+
+button {
+    border: none;
+}
+
+button.continueShoping {
+    background-color: rgb(105, 168, 10);
+    color: white;
+    margin-left: 50px;
+    padding: 10px;
+
+}
+
+.clearCart {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+
+}
+
+button.checkOut {
+    background-color: rgb(105, 168, 10);
+    color: white;
+    padding: 10px;
+    width: 50%;
+}
+
+table {
+    padding: 50px;
+    width: 100%;
+    height: 50%;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+td.total {
+    text-align: center;
+}
+
+hr.full {
+    width: 100%;
+}
+
+a.link {
+    text-decoration: none;
+    color: white;
+}
